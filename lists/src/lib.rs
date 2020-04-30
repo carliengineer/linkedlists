@@ -1,6 +1,7 @@
 #[cfg(test)]
 
 pub mod first;
+pub mod second;
 
 mod tests {
    // use super::List;
