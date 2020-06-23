@@ -50,7 +50,7 @@ impl<T> List<T> {
         Iter{next : self.head.as_ref().map(|node| &**node)}
         //alternatively, with turbofish ::<> The turbofish, ::<>, that lets us tell the compiler what we think the types of those generics should be
         //map is a generic function. pub fn map<U,F>(self, f: F) -> Option<U>
-        //so turbofish in this case says mao should return ::<&Node<T>> and I dont care/know about other type
+        //so turbofish in this case says map should return ::<&Node<T>> and I dont care/know about other type
         //this in turn lets compiler know it should apply deref coercion apploed to it, so we don't
         //have to do the **'s ourselves
             //self.next = node.head.as_ref().map::<&Node<T>, _>(|node| &node);
@@ -86,7 +86,6 @@ impl<'a, T> Iterator for Iter<'a, T> {
         })
     }
 }
-
 
 pub struct IterMut<'a, T> {
     next: Option<&'a mut Node<T>>,
